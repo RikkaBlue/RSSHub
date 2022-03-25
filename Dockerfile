@@ -13,7 +13,6 @@ WORKDIR /app
 COPY ./yarn.lock /app
 COPY ./package.json /app
 
-
 RUN if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
   echo 'use npm mirror'; npm config set registry https://registry.npmmirror.com; \
   fi;
@@ -21,14 +20,13 @@ RUN if [ "$USE_CHINA_NPM_REGISTRY" = 1 ]; then \
 RUN npm i -g npm
 
 RUN if [ "$PUPPETEER_SKIP_CHROMIUM_DOWNLOAD" = 0 ]; then \
-
-  unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD && yarn ;\
+  unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD ;\
   else \
-  export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true && yarn ;\
+  export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true ;\
   fi;
 
+RUN yarn --frozen-lockfile --network-timeout 1000000
 COPY . /app
-
 RUN node scripts/docker/minify-docker.js
 
 
