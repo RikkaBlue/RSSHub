@@ -33,7 +33,6 @@
     </tbody>
 </table>
 
-<hr/>
 <div>
     {{@ item.content}}
 </div>
