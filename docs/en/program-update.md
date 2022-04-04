@@ -269,12 +269,6 @@ Refer to [#minecraft](/en/game.html#minecraft)
 
 见 [#nintendo](/game.html#nintendo)
 
-## NPM
-
-### Package
-
-<RouteEn author="Fatpandac" example="/npm/package/rsshub" path="/npm/package/:name" :paramsDesc="['Package name']"/>
-
 ## Nvidia Web Driver
 
 ### Changelog
